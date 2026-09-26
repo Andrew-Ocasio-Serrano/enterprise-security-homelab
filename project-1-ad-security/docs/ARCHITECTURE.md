@@ -16,3 +16,18 @@ Note: Forest/domain functional level defaulted to Windows Server 2016
 during promotion (the wizard's default when accepting standard options
 on 2022 media). Left as-is since functional level doesn't affect this
 project's AD security assessment goals.
+
+## Attacker/Collector VM
+- Kali Linux (official VMware image from kali.org)
+- 4GB RAM, 2 vCPU, NAT networking (same virtual network as DC01)
+- Used for BloodHound CE (Docker) and SharpHound collection
+
+## Network Verification
+Confirmed connectivity between Kali (attacker/collector) and DC01
+(domain controller) via ping across the shared NAT network — required
+for later SharpHound collection.
+
+Note: Screenshot 17 substituted docker ps output for the original
+docker compose up -d startup log, which had scrolled out of terminal
+history by the time of capture — docker ps provides equivalent proof
+of running container state.
