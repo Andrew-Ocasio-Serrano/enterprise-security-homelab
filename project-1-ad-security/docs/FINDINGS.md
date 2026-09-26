@@ -24,3 +24,38 @@ compromise, with no additional exploitation required.
 least-privilege group design: help desk roles should have scoped,
 task-specific delegated permissions (e.g., password reset rights via
 ACLs), not nested membership in privileged groups.
+
+
+## Finding 2: Kerberoastable Service Account with Direct Domain Admin Membership
+
+**Affected account:** svc-sql
+
+**Root cause:** A service account was created with a Service Principal
+Name (required for Kerberos-authenticated service communication), a
+weak, non-expiring password, and direct membership in Domain Admins —
+a common real-world shortcut to avoid service-account permission
+troubleshooting.
+
+**Evidence:** `setspn -L svc-sql` confirms the registered SPN
+(MSSQLSvc/dc01.corp.local:1433). `Get-ADUser` confirms
+PasswordNeverExpires is enabled and Domain Admins appears in MemberOf
+(see screenshot 15).
+
+**Attack path:** Any authenticated domain user — including a
+low-privilege account like a Help Desk user — can request a Kerberos
+service ticket for this SPN without any special privileges, then
+attempt to crack the password offline (Kerberoasting). A successful
+crack yields direct Domain Admin credentials.
+
+**MITRE ATT&CK mapping:** T1558.003 (Steal or Forge Kerberos Tickets:
+Kerberoasting), T1078.002 (Valid Accounts: Domain Accounts)
+
+**Risk:** Unlike Finding 1 (which required tracing nested group
+membership to discover), this account is *visibly* a Domain Admin —
+the failure here is a lack of periodic privileged-account auditing,
+combined with weak service account credential hygiene.
+
+**Remediation:** Remove svc-sql from Domain Admins; apply a strong,
+regularly rotated password or migrate to a Group Managed Service
+Account (gMSA), which Windows can manage automatically without a
+human-known password at all.
