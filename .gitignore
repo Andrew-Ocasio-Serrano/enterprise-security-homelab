@@ -1,0 +1,5 @@
+*.iso
+*.ova
+*.vmdk
+*.vmx
+.vagrant/
