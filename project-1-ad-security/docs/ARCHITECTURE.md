@@ -31,3 +31,11 @@ Note: Screenshot 17 substituted docker ps output for the original
 docker compose up -d startup log, which had scrolled out of terminal
 history by the time of capture — docker ps provides equivalent proof
 of running container state.
+
+## Workstation VM — Note on Initial Login
+The Windows setup wizard created a local account also named "corp.local"
+during the domain-account configuration step, easy to confuse with an
+actual domain login. First whoami check (desktop-1ojk4d2\corp.local)
+confirmed this was a local account session, not a domain one. Corrected
+by logging in via "Other user" with a real domain account (CORP\bocasio)
+instead — verified via whoami returning corp\bocasio (screenshot 22).
