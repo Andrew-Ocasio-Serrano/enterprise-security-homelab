@@ -33,8 +33,8 @@ interactively.
 ## Note: DNS Self-Reference Before AD DS Installation
 
 Setting DC01's own DNS server to 127.0.0.1 before the AD DS/DNS role
-was installed caused a temporary loss of internet access on the VM —
-expected, since no DNS service was running yet to resolve that
+was installed caused a temporary loss of internet access on the VM
+(expected) since no DNS service was running yet to resolve that
 loopback. Resolved once AD DS/DNS installation completed.
 
 ## Note: DNS Forwarder Configuration
