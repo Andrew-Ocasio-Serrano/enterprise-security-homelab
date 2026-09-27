@@ -26,3 +26,9 @@ reset rights via ACLs on specific OUs) rather than blanket group
 membership in privileged groups. Conduct periodic recursive group
 membership audits — this class of finding is invisible to a flat
 membership review.
+
+**Retest confirmation:** Confirmed via fresh SharpHound collection and
+BloodHound re-import (database cleared before re-upload to ensure
+accurate current-state data). The AALVAREZ/BOCASIO → Help Desk Support
+→ IT Admins → Domain Admins path no longer appears in the graph. See
+screenshot 27, directly comparable to screenshot 25 (pre-remediation).
