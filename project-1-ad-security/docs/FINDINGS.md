@@ -73,3 +73,26 @@ visibility is itself a real, discussable finding: default AD
 configurations grant broad structural visibility to any authenticated
 user, which is precisely what makes attack-path discovery via
 BloodHound possible for real attackers with minimal initial access.
+
+## Finding 3 (Discovered, Not Planted): GenericAll Rights via Account Operators
+
+**Discovered organically** during BloodHound graph review — not an
+intentionally planted misconfiguration like Findings 1 and 2.
+
+**Path:** ACCOUNT OPERATORS (built-in group) → GenericAll → WS01.CORP.LOCAL
+
+**Root cause:** The built-in "Account Operators" group holds GenericAll
+(full control) rights over the WS01 computer object by default AD
+behavior, not a deliberate lab misconfiguration.
+
+**MITRE ATT&CK mapping:** T1098 (Account Manipulation)
+
+**Risk:** Anyone with membership in Account Operators (a group often
+under-scrutinized since it's not "Domain Admins") could fully
+reconfigure or take control of WS01, including resetting its computer
+account password to authenticate as the machine itself.
+
+**Note:** This finding demonstrates the value of BloodHound over manual
+review — this path was not intentionally built and was only surfaced
+through graph analysis, mirroring how real assessments uncover
+unexpected privilege relationships.
