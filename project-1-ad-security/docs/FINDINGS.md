@@ -174,7 +174,7 @@ narrower check would have missed entirely.
 ```powershell
 setspn -D MSSQLSvc/dc01.corp.local:1433 svc-sql
 ```
-SPN removed since no legitimate SQL Server instance exists on DC01 —
+SPN removed since no legitimate SQL Server instance exists on DC01
 it was registered only to demonstrate Kerberoastability for Finding 2.
 Verified via `setspn -L svc-sql`, which returned no registered SPNs
 (screenshot 31).
