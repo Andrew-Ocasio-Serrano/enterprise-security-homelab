@@ -3,3 +3,6 @@
 *.vmdk
 *.vmx
 .vagrant/
+passwords.txt
+*.secrets
+credentials.txt
