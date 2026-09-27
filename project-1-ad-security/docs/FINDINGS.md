@@ -59,3 +59,17 @@ combined with weak service account credential hygiene.
 regularly rotated password or migrate to a Group Managed Service
 Account (gMSA), which Windows can manage automatically without a
 human-known password at all.
+
+## Collection Methodology
+Data collected via SharpHound v2.16.0, run as a standard, non-privileged
+domain user (bocasio) from a domain-joined workstation (WS01) — not
+from the domain controller — to accurately simulate what an attacker
+with only basic user-level access could enumerate. Collection completed
+in under 2 seconds, covering 315 AD objects, with zero access-denied
+errors: notably, a completely unprivileged user was able to enumerate
+the full domain structure (all users, groups, ACLs, and trust
+relationships) using only default AD read permissions. This baseline
+visibility is itself a real, discussable finding: default AD
+configurations grant broad structural visibility to any authenticated
+user, which is precisely what makes attack-path discovery via
+BloodHound possible for real attackers with minimal initial access.
