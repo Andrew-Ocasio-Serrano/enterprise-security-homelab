@@ -64,7 +64,7 @@ across the shared NAT network prior to tool installation.
 ## Note: BloodHound Docker Port Binding
 
 BloodHound CE's default `docker-compose.yml` binds port 8080 to
-127.0.0.1 (Kali's loopback only), blocking access from other VMs —
+127.0.0.1 (Kali's loopback only), blocking access from other VMs
 confirmed via `Test-NetConnection` from WS01 (ping succeeded, TCP
 connection failed). Fixed by changing the port binding to `0.0.0.0` in
 `docker-compose.yml`, exposing it to the shared NAT network.
