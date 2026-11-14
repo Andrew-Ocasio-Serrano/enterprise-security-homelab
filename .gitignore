@@ -6,3 +6,14 @@
 passwords.txt
 *.secrets
 credentials.txt
+
+# .NET build artifacts & VS settings
+.vs/
+bin/
+obj/
+
+# Secrets — never commit
+passwords
+*.env
+*.key
+*.pem

@@ -1,0 +1,26 @@
+5 MITRE ATT&CK Techniques
+
+  ID: T1059.001
+  Name: PowerShell
+  Tactic: Execution
+  Goal: To abuse PowerShell commands and scripts
+
+  ID: T1003.002
+  Name: Security Account Manager (SAM)
+  Tactic: OS Credential Dumping
+  Goal: Get access to local Windows SAM and SYSTEM registry
+
+  ID: T1053.005
+  Name: Scheduled Task/Job
+  Tactic: Persistence
+  Goal: Getting to execute malicious code by abusing built-in OS system scheduling utilities
+
+  ID: T1087.001
+  Name: Local Account
+  Tactic: Discovery
+  Goal: Get to map the environment before moving forward
+
+  ID: T1070.001
+  Name: Clear Windows Event Logs
+  Tactic: Defense Evasion
+  Goal: clear Windows Event Logs to hide the activity and tracks of an intrusion

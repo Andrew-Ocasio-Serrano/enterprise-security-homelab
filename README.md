@@ -7,11 +7,12 @@ certification-focused exercise.
 
 ## Projects
 
-- [Project 1 = Enterprise AD Security](./project-1-ad-security/) —
+- [Project 1 = Enterprise AD Security](./project-1-ad-security/) -
   Active Directory attack path discovery and remediation using
   BloodHound. **Complete.**
-- Project 2 = Detection Engineering (Nov 2026) — Wazuh, Sigma, Atomic
-  Red Team, MITRE ATT&CK mapping. Coming soon.
+- [Project 2 = Detection Engineering](./project-2-detection-engineering/) (Nov 2026) -
+  Custom Wazuh detections mapped to MITRE ATT&CK, validated with Atomic Red Team and
+  tested against evasions, plus a C# alert-triage tool. **Complete.**
 - Project 3 = Network Security (Dec 2026) — Nmap, Wireshark, traffic
   analysis. Coming soon.
 
